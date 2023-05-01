@@ -1,0 +1,1515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.16 on linux)" generated="20230501 08:02:24.698" rpa="false">
+<suite id="s1" name="Test-script-To-Do-List" source="/workspace/Test-script-To-Do-List.robot">
+<test id="s1-t1" name="001:Open_web_and_verify_home_page">
+<kw name="Open Browser Chrome :" library="Common_Keywords">
+<arguments>
+<arg>${URL_TDL_Test}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+</arguments>
+<assign>
+<var>${chrome_options}</var>
+</assign>
+<msg timestamp="20230501 08:02:25.973" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7f0fc0239d30&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:25.969" endtime="20230501 08:02:25.973"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:25.975" endtime="20230501 08:02:25.977"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:25.978" endtime="20230501 08:02:25.979"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:25.980" endtime="20230501 08:02:25.981"></status>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>driver_name=Chrome</arg>
+<arg>alias=google</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<arg>executable_path=/usr/local/bin/chromedriver</arg>
+</arguments>
+<msg timestamp="20230501 08:02:25.983" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230501 08:02:25.981" endtime="20230501 08:02:28.705"></status>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:28.707" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230501 08:02:28.706" endtime="20230501 08:02:30.073"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${_url}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:30.074" level="INFO">Opening url 'https://abhigyank.github.io/To-Do-List/'</msg>
+<status status="PASS" starttime="20230501 08:02:30.073" endtime="20230501 08:02:31.702"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230501 08:02:31.702" endtime="20230501 08:02:31.815"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:25.968" endtime="20230501 08:02:31.816"></status>
+</kw>
+<kw name="Verify Element and Should Be Visible :" library="Common_Keywords">
+<arguments>
+<arg>${To_Do_List}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>20s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:31.818" endtime="20230501 08:02:31.907"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:31.953" level="INFO">Element '//h1[contains(.,'To Do List')]' is displayed.</msg>
+<status status="PASS" starttime="20230501 08:02:31.907" endtime="20230501 08:02:31.954"></status>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:31.972" level="INFO">Current page contains element '//h1[contains(.,'To Do List')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:31.954" endtime="20230501 08:02:31.973"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:31.816" endtime="20230501 08:02:31.973"></status>
+</kw>
+<kw name="Verify ListElement Should Be Visible :" library="Common_Keywords">
+<arguments>
+<arg>${list_menu}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${listdata}</arg>
+</arguments>
+<assign>
+<var>${Length}</var>
+</assign>
+<msg timestamp="20230501 08:02:31.976" level="INFO">Length is 3</msg>
+<msg timestamp="20230501 08:02:31.977" level="INFO">${Length} = 3</msg>
+<status status="PASS" starttime="20230501 08:02:31.975" endtime="20230501 08:02:31.977"></status>
+</kw>
+<kw name="${i} IN RANGE [ ${Length} ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:31.979" level="INFO">//a[contains(.,'Add Item')]</msg>
+<status status="PASS" starttime="20230501 08:02:31.978" endtime="20230501 08:02:31.979"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:31.980" endtime="20230501 08:02:32.051"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.052" endtime="20230501 08:02:32.071"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:31.978" endtime="20230501 08:02:32.071"></status>
+</kw>
+<kw name="${i} = 1" type="foritem">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:32.073" level="INFO">//a[contains(.,'To-Do Tasks')]</msg>
+<status status="PASS" starttime="20230501 08:02:32.072" endtime="20230501 08:02:32.073"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.074" endtime="20230501 08:02:32.117"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.118" endtime="20230501 08:02:32.134"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.072" endtime="20230501 08:02:32.134"></status>
+</kw>
+<kw name="${i} = 2" type="foritem">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:32.136" level="INFO">//a[contains(.,'Completed')]</msg>
+<status status="PASS" starttime="20230501 08:02:32.135" endtime="20230501 08:02:32.136"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.136" endtime="20230501 08:02:32.184"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.184" endtime="20230501 08:02:32.201"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.134" endtime="20230501 08:02:32.201"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:31.977" endtime="20230501 08:02:32.201"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:31.974" endtime="20230501 08:02:32.201"></status>
+</kw>
+<kw name="Verify ListElement Should Be Visible :" library="Common_Keywords">
+<arguments>
+<arg>${list_function_Additem}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${listdata}</arg>
+</arguments>
+<assign>
+<var>${Length}</var>
+</assign>
+<msg timestamp="20230501 08:02:32.203" level="INFO">Length is 2</msg>
+<msg timestamp="20230501 08:02:32.203" level="INFO">${Length} = 2</msg>
+<status status="PASS" starttime="20230501 08:02:32.203" endtime="20230501 08:02:32.204"></status>
+</kw>
+<kw name="${i} IN RANGE [ ${Length} ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:32.205" level="INFO">id:new-task</msg>
+<status status="PASS" starttime="20230501 08:02:32.205" endtime="20230501 08:02:32.206"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.206" endtime="20230501 08:02:32.251"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.251" endtime="20230501 08:02:32.270"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.204" endtime="20230501 08:02:32.270"></status>
+</kw>
+<kw name="${i} = 1" type="foritem">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:32.271" level="INFO">//button[contains(.,'add')]</msg>
+<status status="PASS" starttime="20230501 08:02:32.270" endtime="20230501 08:02:32.271"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.272" endtime="20230501 08:02:32.321"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${listdata[${i}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.322" endtime="20230501 08:02:32.339"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.270" endtime="20230501 08:02:32.340"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.204" endtime="20230501 08:02:32.340"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.202" endtime="20230501 08:02:32.340"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/1 Open web and verify home page.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:32.451" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/1%20Open%20web%20and%20verify%20home%20page.png"&gt;&lt;img src="../../Resources%5C..%5CResult/1%20Open%20web%20and%20verify%20home%20page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:32.340" endtime="20230501 08:02:32.451"></status>
+</kw>
+<doc>- Title Visible : TO DO LIST 
+
+- Menu Visible : Add Item , TO-DO Tasks , Completed 
+
+- Function add-item Visible : box input , button add 
+</doc>
+<tags>
+<tag>positive</tag>
+</tags>
+<status status="PASS" starttime="20230501 08:02:25.965" endtime="20230501 08:02:32.451" critical="yes"></status>
+</test>
+<test id="s1-t2" name="002:Create_Tasks_and_verify_Tasks">
+<kw name="Add New Item :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_1}</arg>
+</arguments>
+<kw name="Input Text :" library="Common_Keywords">
+<arguments>
+<arg>${box_input_AddItem}</arg>
+<arg>${inputData}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.465" endtime="20230501 08:02:32.499"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${inputData}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:32.502" level="INFO">Typing text 'ทดสอบระบบ ทู-ดู-ลิส' into text field 'id:new-task'.</msg>
+<status status="PASS" starttime="20230501 08:02:32.501" endtime="20230501 08:02:32.698"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.463" endtime="20230501 08:02:32.699"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${button_input_AddItem}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.700" endtime="20230501 08:02:32.731"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.732" endtime="20230501 08:02:32.745"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:32.746" level="INFO">Clicking element '//button[contains(.,'add')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:32.745" endtime="20230501 08:02:32.821"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.699" endtime="20230501 08:02:32.822"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.456" endtime="20230501 08:02:32.822"></status>
+</kw>
+<kw name="Add New Item :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_2}</arg>
+</arguments>
+<kw name="Input Text :" library="Common_Keywords">
+<arguments>
+<arg>${box_input_AddItem}</arg>
+<arg>${inputData}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.824" endtime="20230501 08:02:32.855"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${inputData}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:32.856" level="INFO">Typing text 'Test system To-Do-List' into text field 'id:new-task'.</msg>
+<status status="PASS" starttime="20230501 08:02:32.855" endtime="20230501 08:02:32.987"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.823" endtime="20230501 08:02:32.988"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${button_input_AddItem}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:32.989" endtime="20230501 08:02:33.017"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.018" endtime="20230501 08:02:33.033"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:33.034" level="INFO">Clicking element '//button[contains(.,'add')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:33.033" endtime="20230501 08:02:33.086"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.988" endtime="20230501 08:02:33.087"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:32.822" endtime="20230501 08:02:33.087"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${menu_To-DoTasks}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.089" endtime="20230501 08:02:33.118"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.118" endtime="20230501 08:02:33.132"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:33.133" level="INFO">Clicking element '//a[contains(.,'To-Do Tasks')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:33.132" endtime="20230501 08:02:33.224"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.087" endtime="20230501 08:02:33.224"></status>
+</kw>
+<kw name="Verify Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_1}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.226" endtime="20230501 08:02:33.267"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.267" endtime="20230501 08:02:33.285"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.225" endtime="20230501 08:02:33.286"></status>
+</kw>
+<kw name="Verify Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_2}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.287" endtime="20230501 08:02:33.329"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.329" endtime="20230501 08:02:33.344"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.286" endtime="20230501 08:02:33.345"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/2 Create Tasks.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:33.497" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/2%20Create%20Tasks.png"&gt;&lt;img src="../../Resources%5C..%5CResult/2%20Create%20Tasks.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:33.346" endtime="20230501 08:02:33.497"></status>
+</kw>
+<doc>- Create tasks 
+
+- Verify tasks : new tasks visible 
+</doc>
+<tags>
+<tag>positive</tag>
+</tags>
+<status status="PASS" starttime="20230501 08:02:32.453" endtime="20230501 08:02:33.497" critical="yes"></status>
+</test>
+<test id="s1-t3" name="003:Delete_Tasks_and_Verify_Tasks">
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/3.1 Before Delete Tasks.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:33.630" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/3.1%20Before%20Delete%20Tasks.png"&gt;&lt;img src="../../Resources%5C..%5CResult/3.1%20Before%20Delete%20Tasks.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:33.501" endtime="20230501 08:02:33.631"></status>
+</kw>
+<kw name="Delete Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_1}</arg>
+</arguments>
+<kw name="Verify Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${task_name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.634" endtime="20230501 08:02:33.671"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.672" endtime="20230501 08:02:33.690"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.632" endtime="20230501 08:02:33.691"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+<arg>for</arg>
+</arguments>
+<assign>
+<var>${for_value}</var>
+</assign>
+<msg timestamp="20230501 08:02:33.723" level="INFO">${for_value} = 1</msg>
+<status status="PASS" starttime="20230501 08:02:33.691" endtime="20230501 08:02:33.724"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${for_value}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:33.725" level="INFO">1</msg>
+<status status="PASS" starttime="20230501 08:02:33.724" endtime="20230501 08:02:33.725"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>//button[contains(@id,'${for_value}')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.727" endtime="20230501 08:02:33.774"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.774" endtime="20230501 08:02:33.790"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:33.792" level="INFO">Clicking element '//button[contains(@id,'1')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:33.791" endtime="20230501 08:02:33.898"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.725" endtime="20230501 08:02:33.899"></status>
+</kw>
+<kw name="Element Should Not Be Visible :" library="Common_Keywords">
+<arguments>
+<arg>${task_name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.901" endtime="20230501 08:02:33.921"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<msg timestamp="20230501 08:02:33.939" level="INFO">Element '//label[contains(.,'ทดสอบระบบ ทู-ดู-ลิส')]' did not exist.</msg>
+<status status="PASS" starttime="20230501 08:02:33.921" endtime="20230501 08:02:33.939"></status>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.940" endtime="20230501 08:02:33.956"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.899" endtime="20230501 08:02:33.957"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.631" endtime="20230501 08:02:33.957"></status>
+</kw>
+<kw name="Delete Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_2}</arg>
+</arguments>
+<kw name="Verify Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${task_name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.960" endtime="20230501 08:02:33.996"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:33.996" endtime="20230501 08:02:34.011"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.959" endtime="20230501 08:02:34.012"></status>
+</kw>
+<kw name="Get Element Attribute" library="Selenium2Library">
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+<arg>for</arg>
+</arguments>
+<assign>
+<var>${for_value}</var>
+</assign>
+<msg timestamp="20230501 08:02:34.043" level="INFO">${for_value} = 1</msg>
+<status status="PASS" starttime="20230501 08:02:34.012" endtime="20230501 08:02:34.043"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${for_value}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.044" level="INFO">1</msg>
+<status status="PASS" starttime="20230501 08:02:34.044" endtime="20230501 08:02:34.045"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>//button[contains(@id,'${for_value}')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.046" endtime="20230501 08:02:34.083"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.083" endtime="20230501 08:02:34.100"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.101" level="INFO">Clicking element '//button[contains(@id,'1')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:34.101" endtime="20230501 08:02:34.209"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:34.045" endtime="20230501 08:02:34.209"></status>
+</kw>
+<kw name="Element Should Not Be Visible :" library="Common_Keywords">
+<arguments>
+<arg>${task_name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.211" endtime="20230501 08:02:34.232"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.247" level="INFO">Element '//label[contains(.,'Test system To-Do-List')]' did not exist.</msg>
+<status status="PASS" starttime="20230501 08:02:34.232" endtime="20230501 08:02:34.248"></status>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.248" endtime="20230501 08:02:34.263"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:34.210" endtime="20230501 08:02:34.264"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:33.958" endtime="20230501 08:02:34.264"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/3.2 After Delete Tasks in menu TO-DO Tasks.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.396" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/3.2%20After%20Delete%20Tasks%20in%20menu%20TO-DO%20Tasks.png"&gt;&lt;img src="../../Resources%5C..%5CResult/3.2%20After%20Delete%20Tasks%20in%20menu%20TO-DO%20Tasks.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:34.265" endtime="20230501 08:02:34.397"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${menu_Completed}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.398" endtime="20230501 08:02:34.442"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.443" endtime="20230501 08:02:34.468"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.469" level="INFO">Clicking element '//a[contains(.,'Completed')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:34.469" endtime="20230501 08:02:34.561"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:34.397" endtime="20230501 08:02:34.562"></status>
+</kw>
+<kw name="Element Should Not Be Visible :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_1}</arg>
+</arguments>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.564" endtime="20230501 08:02:34.583"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.611" level="INFO">Element '//label[contains(.,'ทดสอบระบบ ทู-ดู-ลิส')]' did not exist.</msg>
+<status status="PASS" starttime="20230501 08:02:34.583" endtime="20230501 08:02:34.612"></status>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.612" endtime="20230501 08:02:34.638"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:34.563" endtime="20230501 08:02:34.639"></status>
+</kw>
+<kw name="Element Should Not Be Visible :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_2}</arg>
+</arguments>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.641" endtime="20230501 08:02:34.661"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.679" level="INFO">Element '//label[contains(.,'Test system To-Do-List')]' did not exist.</msg>
+<status status="PASS" starttime="20230501 08:02:34.661" endtime="20230501 08:02:34.680"></status>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.680" endtime="20230501 08:02:34.696"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:34.639" endtime="20230501 08:02:34.701"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/3.3 After Delete Tasks in menu Completed.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.857" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/3.3%20After%20Delete%20Tasks%20in%20menu%20Completed.png"&gt;&lt;img src="../../Resources%5C..%5CResult/3.3%20After%20Delete%20Tasks%20in%20menu%20Completed.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:34.702" endtime="20230501 08:02:34.858"></status>
+</kw>
+<doc>- Delete tasks in menu TO-DO Tasks 
+
+- Verify tasks : not tasks del in menu TO-DO Tasks and Completed 
+</doc>
+<tags>
+<tag>positive</tag>
+</tags>
+<status status="PASS" starttime="20230501 08:02:33.499" endtime="20230501 08:02:34.858" critical="yes"></status>
+</test>
+<test id="s1-t4" name="004:Completed_Tasks_and_verify_Tasks_Completed">
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${menu_AddItem}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.865" endtime="20230501 08:02:34.915"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:34.915" endtime="20230501 08:02:34.935"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:34.945" level="INFO">Clicking element '//a[contains(.,'Add Item')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:34.943" endtime="20230501 08:02:35.061"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:34.863" endtime="20230501 08:02:35.062"></status>
+</kw>
+<kw name="Add New Item :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_1}</arg>
+</arguments>
+<kw name="Input Text :" library="Common_Keywords">
+<arguments>
+<arg>${box_input_AddItem}</arg>
+<arg>${inputData}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:35.065" endtime="20230501 08:02:35.102"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${inputData}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:35.103" level="INFO">Typing text 'ทดสอบระบบ ทู-ดู-ลิส' into text field 'id:new-task'.</msg>
+<status status="PASS" starttime="20230501 08:02:35.102" endtime="20230501 08:02:35.321"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:35.063" endtime="20230501 08:02:35.321"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${button_input_AddItem}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:35.323" endtime="20230501 08:02:35.366"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:35.366" endtime="20230501 08:02:35.391"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:35.392" level="INFO">Clicking element '//button[contains(.,'add')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:35.392" endtime="20230501 08:02:35.454"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:35.322" endtime="20230501 08:02:35.454"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:35.062" endtime="20230501 08:02:35.455"></status>
+</kw>
+<kw name="Add New Item :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_2}</arg>
+</arguments>
+<kw name="Input Text :" library="Common_Keywords">
+<arguments>
+<arg>${box_input_AddItem}</arg>
+<arg>${inputData}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:35.459" endtime="20230501 08:02:35.496"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${inputData}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:35.498" level="INFO">Typing text 'Test system To-Do-List' into text field 'id:new-task'.</msg>
+<status status="PASS" starttime="20230501 08:02:35.497" endtime="20230501 08:02:35.687"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:35.458" endtime="20230501 08:02:35.687"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${button_input_AddItem}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:35.689" endtime="20230501 08:02:35.727"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:35.728" endtime="20230501 08:02:35.755"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:35.756" level="INFO">Clicking element '//button[contains(.,'add')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:35.755" endtime="20230501 08:02:35.823"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:35.688" endtime="20230501 08:02:35.823"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:35.455" endtime="20230501 08:02:35.824"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${menu_To-DoTasks}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:35.825" endtime="20230501 08:02:35.863"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:35.863" endtime="20230501 08:02:35.880"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:35.881" level="INFO">Clicking element '//a[contains(.,'To-Do Tasks')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:35.880" endtime="20230501 08:02:35.947"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:35.824" endtime="20230501 08:02:35.948"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/4.1 verify Tasks Before Completed.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:36.197" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/4.1%20verify%20Tasks%20Before%20Completed.png"&gt;&lt;img src="../../Resources%5C..%5CResult/4.1%20verify%20Tasks%20Before%20Completed.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:35.948" endtime="20230501 08:02:36.197"></status>
+</kw>
+<kw name="Completed Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_1}</arg>
+</arguments>
+<kw name="Verify Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${task_name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.200" endtime="20230501 08:02:36.245"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.245" endtime="20230501 08:02:36.264"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.199" endtime="20230501 08:02:36.264"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>//span[contains(.,'${task_name}')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.266" endtime="20230501 08:02:36.320"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.321" endtime="20230501 08:02:36.340"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:36.341" level="INFO">Clicking element '//span[contains(.,'ทดสอบระบบ ทู-ดู-ลิส')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:36.341" endtime="20230501 08:02:36.461"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.264" endtime="20230501 08:02:36.461"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.462" endtime="20230501 08:02:36.481"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<msg timestamp="20230501 08:02:36.502" level="INFO">Element '//label[contains(.,'ทดสอบระบบ ทู-ดู-ลิส')]' did not exist.</msg>
+<status status="PASS" starttime="20230501 08:02:36.481" endtime="20230501 08:02:36.502"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.197" endtime="20230501 08:02:36.502"></status>
+</kw>
+<kw name="Completed Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_2}</arg>
+</arguments>
+<kw name="Verify Tasks in To-Do Tasks :" library="Common_Keywords">
+<arguments>
+<arg>${task_name}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.505" endtime="20230501 08:02:36.545"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.546" endtime="20230501 08:02:36.563"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.504" endtime="20230501 08:02:36.563"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>//span[contains(.,'${task_name}')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.565" endtime="20230501 08:02:36.613"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.614" endtime="20230501 08:02:36.630"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:36.632" level="INFO">Clicking element '//span[contains(.,'Test system To-Do-List')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:36.631" endtime="20230501 08:02:36.726"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.564" endtime="20230501 08:02:36.726"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.726" endtime="20230501 08:02:36.744"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>//label[contains(.,'${task_name}')]</arg>
+</arguments>
+<msg timestamp="20230501 08:02:36.762" level="INFO">Element '//label[contains(.,'Test system To-Do-List')]' did not exist.</msg>
+<status status="PASS" starttime="20230501 08:02:36.745" endtime="20230501 08:02:36.762"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.503" endtime="20230501 08:02:36.763"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>${menu_Completed}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.766" endtime="20230501 08:02:36.803"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.804" endtime="20230501 08:02:36.824"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:36.825" level="INFO">Clicking element '//a[contains(.,'Completed')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:36.824" endtime="20230501 08:02:36.893"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.763" endtime="20230501 08:02:36.893"></status>
+</kw>
+<kw name="Verify Tasks in Completed :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_1}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//span[contains(.,'done${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.895" endtime="20230501 08:02:36.972"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//span[contains(.,'done${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.972" endtime="20230501 08:02:36.991"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.894" endtime="20230501 08:02:36.992"></status>
+</kw>
+<kw name="Verify Tasks in Completed :" library="Common_Keywords">
+<arguments>
+<arg>${tesk_2}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//span[contains(.,'done${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:36.994" endtime="20230501 08:02:37.065"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>//span[contains(.,'done${task_name}')]</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.065" endtime="20230501 08:02:37.082"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:36.992" endtime="20230501 08:02:37.083"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/4.2 verify Tasks Completed.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:37.276" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/4.2%20verify%20Tasks%20Completed.png"&gt;&lt;img src="../../Resources%5C..%5CResult/4.2%20verify%20Tasks%20Completed.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:37.083" endtime="20230501 08:02:37.276"></status>
+</kw>
+<doc>- Completed tasks in menu TO-DO Tasks 
+
+- verify tasks completed : not tasks in menu TO-DO Tasks and task move menu Completed 
+</doc>
+<tags>
+<tag>positive</tag>
+</tags>
+<status status="PASS" starttime="20230501 08:02:34.861" endtime="20230501 08:02:37.277" critical="yes"></status>
+</test>
+<test id="s1-t5" name="005:Clear_All_Tasks_Completed">
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/5.1 Verify Tasks Completed.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:37.457" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/5.1%20Verify%20Tasks%20Completed.png"&gt;&lt;img src="../../Resources%5C..%5CResult/5.1%20Verify%20Tasks%20Completed.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:37.285" endtime="20230501 08:02:37.459"></status>
+</kw>
+<kw name="Clear All Tasks Completed" library="Common_Keywords">
+<kw name="Get WebElements" library="Selenium2Library">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>//button[starts-with(@id, '')]</arg>
+</arguments>
+<assign>
+<var>@{elements}</var>
+</assign>
+<msg timestamp="20230501 08:02:37.511" level="INFO">@{elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="83e403f6fe2b4001a8efe16e8a832866", element="911c9262-96ef-4b66-bcfd-53f7cbb961f5")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" starttime="20230501 08:02:37.461" endtime="20230501 08:02:37.511"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>[elem.get_attribute('id') for elem in $elements]</arg>
+</arguments>
+<assign>
+<var>@{ids}</var>
+</assign>
+<msg timestamp="20230501 08:02:37.602" level="INFO">@{ids} = [  | 1 | 2 ]</msg>
+<status status="PASS" starttime="20230501 08:02:37.511" endtime="20230501 08:02:37.602"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ids}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:37.603" level="INFO">['', '1', '2']</msg>
+<status status="PASS" starttime="20230501 08:02:37.602" endtime="20230501 08:02:37.603"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${ids}</arg>
+</arguments>
+<assign>
+<var>${Length}</var>
+</assign>
+<msg timestamp="20230501 08:02:37.604" level="INFO">Length is 3</msg>
+<msg timestamp="20230501 08:02:37.604" level="INFO">${Length} = 3</msg>
+<status status="PASS" starttime="20230501 08:02:37.603" endtime="20230501 08:02:37.605"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${Length} - 1</arg>
+</arguments>
+<assign>
+<var>${Length}</var>
+</assign>
+<msg timestamp="20230501 08:02:37.606" level="INFO">${Length} = 2</msg>
+<status status="PASS" starttime="20230501 08:02:37.605" endtime="20230501 08:02:37.606"></status>
+</kw>
+<kw name="${i} IN RANGE [ ${Length} ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20230501 08:02:37.608" level="INFO">${x} = 1</msg>
+<status status="PASS" starttime="20230501 08:02:37.608" endtime="20230501 08:02:37.608"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ids[${x}]}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:37.611" level="INFO">1</msg>
+<status status="PASS" starttime="20230501 08:02:37.609" endtime="20230501 08:02:37.612"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ids[${x}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.618" endtime="20230501 08:02:37.675"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${ids[${x}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.675" endtime="20230501 08:02:37.692"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>//button[contains(@id,'${ids[${x}]}')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.694" endtime="20230501 08:02:37.728"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.728" endtime="20230501 08:02:37.744"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:37.745" level="INFO">Clicking element '//button[contains(@id,'1')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:37.745" endtime="20230501 08:02:37.840"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:37.692" endtime="20230501 08:02:37.841"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:37.607" endtime="20230501 08:02:37.841"></status>
+</kw>
+<kw name="${i} = 1" type="foritem">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20230501 08:02:37.843" level="INFO">${x} = 1</msg>
+<status status="PASS" starttime="20230501 08:02:37.842" endtime="20230501 08:02:37.844"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ids[${x}]}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:37.845" level="INFO">1</msg>
+<status status="PASS" starttime="20230501 08:02:37.844" endtime="20230501 08:02:37.845"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ids[${x}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.846" endtime="20230501 08:02:37.883"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${ids[${x}]}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.883" endtime="20230501 08:02:37.900"></status>
+</kw>
+<kw name="Click Element :" library="Common_Keywords">
+<arguments>
+<arg>//button[contains(@id,'${ids[${x}]}')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>120s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.902" endtime="20230501 08:02:37.936"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Local}</arg>
+<arg>60s</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:37.936" endtime="20230501 08:02:37.952"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Local}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:37.953" level="INFO">Clicking element '//button[contains(@id,'1')]'.</msg>
+<status status="PASS" starttime="20230501 08:02:37.953" endtime="20230501 08:02:38.049"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:37.900" endtime="20230501 08:02:38.050"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:37.842" endtime="20230501 08:02:38.050"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:37.607" endtime="20230501 08:02:38.050"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>${btn_del_completed}</arg>
+</arguments>
+<msg timestamp="20230501 08:02:38.066" level="INFO">Element '//button[contains(@id,'1')]' did not exist.</msg>
+<status status="PASS" starttime="20230501 08:02:38.050" endtime="20230501 08:02:38.067"></status>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<arguments>
+<arg>${btn_del_completed}</arg>
+</arguments>
+<status status="PASS" starttime="20230501 08:02:38.067" endtime="20230501 08:02:38.081"></status>
+</kw>
+<status status="PASS" starttime="20230501 08:02:37.459" endtime="20230501 08:02:38.082"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${path_result}/5.2 Delete Tasks Completed.png</arg>
+</arguments>
+<msg timestamp="20230501 08:02:38.244" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../../Resources%5C..%5CResult/5.2%20Delete%20Tasks%20Completed.png"&gt;&lt;img src="../../Resources%5C..%5CResult/5.2%20Delete%20Tasks%20Completed.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230501 08:02:38.082" endtime="20230501 08:02:38.244"></status>
+</kw>
+<doc>- Clear all tasks completed : not task menu completed
+</doc>
+<tags>
+<tag>positive</tag>
+</tags>
+<status status="PASS" starttime="20230501 08:02:37.280" endtime="20230501 08:02:38.245" critical="yes"></status>
+</test>
+<metadata>
+<item name="Version 1.0.0"></item>
+</metadata>
+<status status="PASS" starttime="20230501 08:02:24.706" endtime="20230501 08:02:38.250"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0">Critical Tests</stat>
+<stat pass="5" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="0">positive</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" id="s1" name="Test-script-To-Do-List">Test-script-To-Do-List</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
