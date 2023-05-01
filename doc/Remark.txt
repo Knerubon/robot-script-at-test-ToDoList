@@ -1,0 +1,10 @@
+การทำงานของระบบในปัจจุบัน
+- ระบบสามารถ create task ได้ เมื่อ create สำเร็จ Task จะถูกแสดงที่sohk To-Do Task 
+- ระบบสามารถ Delete Task ในหน้า To-Do Task ได้ เมื่อ Del แล้ว Task จะไม่มีแสดงในทุกเมนู
+- ระบบสามารถ Completed Task ได้ เมื่อทำ action เสร็จจะแสดงในหน้า Completed Task
+- ระบบสามารถ Delete Task ในหน้า Completed Task ได้ เมื่อ Del แล้ว Task จะไม่มีแสดงในทุกเมนู
+
+***Remark
+- ไม่มีระบุเงื่อนเงื่อนไขในการ input text 
+- กรณีไม่กรอกแล้วกด Add ระบบไม่มีการแจ้งเตือน 
+- ไม่ระบุเงื่อนไข กรณี duplicate ปัจจุบันสามารถ input task ซ้ำกันได้
